@@ -15,4 +15,7 @@ export class InvoicesListComponent implements OnInit {
   ngOnInit(): void {
     this.invoices$ = this.invoicesService.getInvoicesList()
   }
+  createInvoice() {
+
+  }
 }

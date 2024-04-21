@@ -1,7 +1,7 @@
 export interface InvoiceModel {
     item?: string;
-    quantitie?: string;
-    price?: string;
+    quantity?: number;
+    price?: number;
     paymentStatus?: string;
     paymentType?: string;
   }
