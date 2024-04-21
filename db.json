@@ -1,25 +1,26 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "userName": "admin",
-            "password": "admin",
-            "userRole": "admin"
-        },
-        {
-            "id": 2,
-            "userName": "user",
-            "password": "user",
-            "userRole": "simple user"
-        }
-    ],
-    "invoices": [
-        {
-            "item": "cat",
-            "quantity": 1,
-            "price": 2.5,
-            "paymentStatus": "pure",
-            "paymentType": "check"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "userName": "admin",
+      "password": "admin",
+      "userRole": "admin"
+    },
+    {
+      "id": "2",
+      "userName": "user",
+      "password": "user",
+      "userRole": "simple user"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "125",
+      "item": "New a",
+      "quantity": 99.99,
+      "price": 85,
+      "paymentStatus": "dg",
+      "paymentType": "ffg"
+    }
+  ]
 }

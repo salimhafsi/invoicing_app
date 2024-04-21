@@ -9,6 +9,7 @@ import { InvoicesDashboardComponent } from './components/invoices-dashboard/invo
 import { LoginComponent } from './components/login/login.component';
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { AuthenticationGuard } from "src/app/guard/authentication.guard";
+import { MessageService } from "primeng/api";
 
 @NgModule({
   declarations: [
@@ -22,12 +23,13 @@ import { AuthenticationGuard } from "src/app/guard/authentication.guard";
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [
     AuthenticationService,
     AuthenticationGuard,
-    // { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
+    MessageService
   ],
   bootstrap: [AppComponent],
 })

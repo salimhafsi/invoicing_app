@@ -5,31 +5,6 @@
         </button>
     </div>
     <div>
-        <!-- <table class="table">
-            <thead>
-                <tr>
-                    <th>item</th>
-                    <th>quantity</th>
-                    <th>price</th>
-                    <th>paymentStatus</th>
-                    <th>paymentType</th>
-                </tr>
-
-            </thead>
-            <tbody>
-                <tr *ngFor="let invoice of invoices$ | async">
-                    <td>{{ invoice.item }}</td>
-                    <td>{{ invoice.quantity }}</td>
-                    <td>{{ invoice.price }}</td>
-                    <td>{{ invoice.paymentStatus }}</td>
-                    <td>{{ invoice.paymentType }}</td>
-                    <td><button (click)="updateInvoice(invoice)">Edit</button></td>
-                    <td>
-                        <button (click)="dateInvoice(invoice)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table> -->
         <p-table [value]="invoices$ | async" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
             <ng-template pTemplate="caption"> Invoices List </ng-template>
             <ng-template pTemplate="header">
@@ -52,10 +27,14 @@
                     <td>{{ invoice.paymentType }}</td>
                     <td><button (click)="updateInvoice(invoice)">Edit</button></td>
                     <td>
-                        <button (click)="dateInvoice(invoice)">Delete</button>
+                        <button (click)="deleteInvoice(invoice)">Delete</button>
                     </td>
                 </tr>
             </ng-template>
         </p-table>
     </div>
 </div>
+<confirm-dialog></confirm-dialog>
+<p-dialog header="Header" [modal]="true" [(visible)]="visible" [style]="{ width: '50vw' }">
+    <create-invoice></create-invoice>
+</p-dialog>

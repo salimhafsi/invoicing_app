@@ -9,9 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
   loginForm: FormGroup;
-  submitted = false;
   user$: Observable<boolean>;
   constructor(
     private formBuilder: FormBuilder,
@@ -24,13 +22,10 @@ export class LoginComponent {
   }
 
   login() {
-    this.submitted = true;
     if (this.loginForm.invalid) {
-      this.submitted = false;
       return;
     }
     this.user$ = this.authenticationService.login(this.loginForm.controls['userName'].value,
       this.loginForm.controls['password'].value)
-
   }
 }
