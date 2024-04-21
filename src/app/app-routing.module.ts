@@ -8,7 +8,7 @@ import { AuthenticationGuard } from "src/app/guard/authentication.guard";
 const routes: Routes = [
   {
     path: '',
-    component: InvoicesDashboardComponent,
+    loadChildren: () => import('./components/invoices-dashboard/invoices-dashboard.module').then(m => m.InvoicesDashboardModule),
     canActivate: [AuthenticationGuard]
   },
   {

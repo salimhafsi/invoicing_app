@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from "src/app/services/user.service";
+import { UserInformationModel } from "src/app/models/user.model";
 
 @Component({
-  selector: 'app-invoices-dashboard',
+  selector: 'invoices-dashboard',
   templateUrl: './invoices-dashboard.component.html',
   styleUrls: ['./invoices-dashboard.component.scss']
 })
 export class InvoicesDashboardComponent implements OnInit {
-
-  constructor() { }
+  userInformations: UserInformationModel
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userInformations = this.userService.getUserInformations()
   }
 
 }

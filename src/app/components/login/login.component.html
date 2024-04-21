@@ -1,5 +1,5 @@
 <div class="login-form">
-    <div *ngIf="(user$ | async)?.length===0">Incorrect username or password.</div>
+    <div *ngIf="(user$ | async)===false">Incorrect username or password.</div>
     <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="form-group">
             <label for="username">Username</label>

@@ -4,19 +4,19 @@
             "id": 1,
             "userName": "admin",
             "password": "admin",
-            "role": "admin"
+            "userRole": "admin"
         },
         {
             "id": 2,
             "userName": "user",
             "password": "user",
-            "role": "simple_user"
+            "userRole": "simple user"
         }
     ],
     "invoices": [
         {
             "item": "cat",
-            "quantitie": 1,
+            "quantity": 1,
             "price": 2.5,
             "paymentStatus": "pure",
             "paymentType": "check"

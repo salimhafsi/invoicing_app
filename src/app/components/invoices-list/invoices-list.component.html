@@ -1,0 +1,5 @@
+<div class="invoices">
+    <div *ngIf="invoices$ | async as invoices">
+        {{invoices | json}}
+    </div>
+</div>

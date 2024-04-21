@@ -1,1 +1,14 @@
-<p>invoices-dashboard works!</p>
+<div class="dashboard">
+    <div class="dashboard-header" role="banner" data-cy="cy-header">
+        <div class="dashboard-header-logo" data-cy="cy-header-logo">
+            <!-- <img width="40" alt="invoice reel Logo" src="assets/movies-assets/movie-reel-cinema-tool.png" /> -->
+        </div>
+        <div class="dashboard-header-actions">
+            {{userInformations.userName}}:
+            <span class="dashboard-header-actions-role" >{{userInformations.userRole}}</span>
+        </div>
+    </div>
+    <div class="dashboard-content" data-cy="cy-content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

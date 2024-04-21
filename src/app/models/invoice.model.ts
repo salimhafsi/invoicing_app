@@ -1,4 +1,4 @@
-export interface invoive {
+export interface InvoiceModel {
     item?: string;
     quantitie?: string;
     price?: string;

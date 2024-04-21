@@ -1,7 +1,11 @@
-export interface User {
+export interface UserCredentialModel {
   id: string;
   userName: string;
   password: string;
-  role:string
+  userRole: string
 }
 
+export interface UserInformationModel {
+  userRole?: string;
+  userName?: string
+}
