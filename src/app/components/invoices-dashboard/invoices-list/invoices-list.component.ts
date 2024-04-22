@@ -35,8 +35,18 @@ export class InvoicesListComponent implements OnInit {
   openCreateInvoiceModal() {
     this.visible = true;
   };
+  openUpdateInvoiceModal(invoice: InvoiceModel) {
+    this.invoiceToUpdate = invoice;
+    this.visible = true;
+  }
   createInvoice(invoice: InvoiceModel) {
     this.invoicesService.addInvoice(invoice).subscribe(() => {
+      this.loadInvoices();
+      this.visible = false;
+    });
+  };
+  updateInvoice(invoice: InvoiceModel) {
+    this.invoicesService.updateInvoice(invoice).subscribe(() => {
       this.loadInvoices();
       this.visible = false;
     });
@@ -55,10 +65,5 @@ export class InvoicesListComponent implements OnInit {
         });
       }
     })
-  }
-
-  updateInvoice(invoice: InvoiceModel) {
-    this.invoiceToUpdate = invoice;
-    this.visible = true;
   }
 }

@@ -2,7 +2,7 @@
     background-color: #71ba9d;
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: relative;
     &-header {
     height: 60px;
     display: flex;
@@ -19,6 +19,12 @@
       right: 100px;
       &-role{
         font-size: 12px
+      }
+      .logout-btn{
+        color:white;
+        background-color: #71ba9d;
+        margin-left: 2px;
+        font-size: 13px
       }
     }
   }

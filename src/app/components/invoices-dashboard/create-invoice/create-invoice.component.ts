@@ -10,10 +10,14 @@ const { v1: uuidv1 } = require('uuid');
   styleUrls: ['./create-invoice.component.scss']
 })
 export class CreateInvoiceComponent implements OnInit {
+  enableUpdateBtn = false
   @Input() set invoiceToUpdate(invoice: InvoiceModel) {
+    invoice ? this.enableUpdateBtn = true : this.enableUpdateBtn = false
     this.initInvoiceForm(invoice)
   }
-  @Output() createInvoiceAction = new EventEmitter<boolean>();
+  @Output() createInvoiceAction = new EventEmitter<InvoiceModel>();
+  @Output() updateInvoiceAction = new EventEmitter<InvoiceModel>();
+
   invoiceForm: FormGroup;
   paymentTypeOptions = PAYMENTTYPS;
   paymentStatusOptions = PAYMENTSTATUS;
@@ -28,6 +32,7 @@ export class CreateInvoiceComponent implements OnInit {
     }
     else {
       this.invoiceForm = this.formBuilder.group({
+        id: [''],
         item: ['', Validators.required],
         quantity: ['', Validators.required],
         price: ['', [Validators.required]],
@@ -40,6 +45,10 @@ export class CreateInvoiceComponent implements OnInit {
   createInvoice() {
     this.invoiceForm.value['id'] = uuidv1()
     this.createInvoiceAction.emit(this.invoiceForm.value);
+    this.initInvoiceForm(null)
+  }
+  updateInvoice() {
+    this.updateInvoiceAction.emit(this.invoiceForm.value);
     this.initInvoiceForm(null)
   }
 }

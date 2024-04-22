@@ -1,5 +1,5 @@
-<div class="login-form">
-    <form [formGroup]="invoiceForm" (ngSubmit)="createInvoice()">
+<div class="invoice-form">
+    <form [formGroup]="invoiceForm">
         <div class="form-group">
             <label for="item">Item</label>
             <input type="text" formControlName="item" class="form-control">
@@ -27,7 +27,8 @@
                   </select>
         </div>
         <div class="form-group">
-            <button [disabled]="invoiceForm.invalid" class="btn btn-primary">Save invoice</button>
+            <button (click)="createInvoice()" [disabled]="invoiceForm.invalid" *ngIf="enableUpdateBtn===false" class="btn btn-primary">Create invoice</button>
+            <button (click)="updateInvoice()" [disabled]="invoiceForm.invalid" *ngIf="enableUpdateBtn===true" class="btn btn-primary">Update invoice</button>
         </div>
     </form>
 </div>

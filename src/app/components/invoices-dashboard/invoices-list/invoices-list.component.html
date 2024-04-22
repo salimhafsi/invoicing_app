@@ -1,6 +1,6 @@
 <div class="invoices">
     <div class="invoices-add-btn">
-        <button color="primary" (click)="openCreateInvoiceModal()">
+        <button class="btn btn-primary create-btn" (click)="openCreateInvoiceModal()">
          Create new Invoice
         </button>
     </div>
@@ -25,9 +25,9 @@
                     <td>{{ invoice.price }}</td>
                     <td>{{ invoice.paymentStatus }}</td>
                     <td>{{ invoice.paymentType }}</td>
-                    <td><button (click)="updateInvoice(invoice)" *ngIf="userRole==='admin'">Edit</button></td>
+                    <td><button class="btn btn-primary" (click)="openUpdateInvoiceModal(invoice)" *ngIf="userRole==='admin'">Edit</button></td>
                     <td>
-                        <button (click)="deleteInvoice(invoice)" *ngIf="userRole==='admin'">Delete</button>
+                        <button class="btn btn-primary" (click)="deleteInvoice(invoice)" *ngIf="userRole==='admin'">Delete</button>
                     </td>
                 </tr>
             </ng-template>
@@ -36,5 +36,5 @@
 </div>
 <confirm-dialog></confirm-dialog>
 <p-dialog [modal]="true" [(visible)]="visible" [style]="{ width: '50vw' }">
-    <create-invoice [invoiceToUpdate]='invoiceToUpdate' (createInvoiceAction)='createInvoice($event)'></create-invoice>
+    <create-invoice [invoiceToUpdate]='invoiceToUpdate' (updateInvoiceAction)='updateInvoice($event)' (createInvoiceAction)='createInvoice($event)'></create-invoice>
 </p-dialog>
