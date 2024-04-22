@@ -13,8 +13,6 @@ const routes: Routes = [
             component: InvoicesListComponent
         }]
     }
-
-
 ];
 
 @NgModule({
