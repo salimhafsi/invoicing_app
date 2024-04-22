@@ -22,7 +22,7 @@
                 <tr>
                     <td>{{ invoice.item }}</td>
                     <td>{{ invoice.quantity }}</td>
-                    <td>{{ invoice.price }}</td>
+                    <td>{{ invoice.price |currency}}</td>
                     <td>{{ invoice.paymentStatus }}</td>
                     <td>{{ invoice.paymentType }}</td>
                     <td><button class="btn btn-primary" (click)="openUpdateInvoiceModal(invoice)" *ngIf="userRole==='admin'">Edit</button></td>
