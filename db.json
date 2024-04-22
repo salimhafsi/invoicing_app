@@ -15,44 +15,12 @@
   ],
   "invoices": [
     {
-      "id": "fef007c0-004d-11ef-8c03-07f033e385c4",
-      "item": "a",
-      "quantity": 0.02,
-      "price": 0.02,
-      "paymentStatus": "Failed",
-      "paymentType": "Credit Card"
-    },
-    {
-      "id": "9d5ad700-004e-11ef-87d8-abdf8b23428f",
-      "item": "salim",
-      "quantity": 0.02,
-      "price": 0.02,
-      "paymentStatus": "Failed",
-      "paymentType": "Credit Card"
-    },
-    {
-      "id": "a14a87c0-004e-11ef-87d8-abdf8b23428f",
-      "item": "salimsssss",
-      "quantity": 0.02,
-      "price": 0.02,
-      "paymentStatus": "Failed",
-      "paymentType": "Credit Card"
-    },
-    {
       "id": "b13e79a0-0050-11ef-9cad-bd60f3ab8586",
-      "item": "s",
-      "quantity": 0.02,
-      "price": 0.03,
-      "paymentStatus": "Failed",
-      "paymentType": "Credit Card"
-    },
-    {
-      "id": "0d7810c0-0054-11ef-9b36-d59b522f1f11",
-      "item": "sssssf",
-      "quantity": 0.02,
-      "price": 0.03,
-      "paymentStatus": "Pending",
-      "paymentType": "Credit Card"
+      "item": "car",
+      "quantity": 2,
+      "price": 3000,
+      "paymentStatus": "Completed",
+      "paymentType": "PayPal"
     }
   ]
 }
