@@ -10,6 +10,8 @@ import { ConfirmationService } from "primeng/api";
 import { ConfirmDialogComponent } from "src/app/components/confirm-dialog/confirm-dialog.component";
 import { CreateInvoiceComponent } from "src/app/components/invoices-dashboard/create-invoice/create-invoice.component";
 import { DialogModule } from 'primeng/dialog';
+import { DropdownModule } from "primeng/dropdown";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,6 +25,9 @@ import { DialogModule } from 'primeng/dialog';
     InvoicesDashboardRoutingModule,
     TableModule,
     DialogModule,
+    DropdownModule,
+    FormsModule,
+    ReactiveFormsModule,
     ConfirmDialogComponent,
   ],
   providers: [ConfirmationService],

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { ConfirmationService } from "primeng/api";
 import { confirmDialogConstant } from "src/app/constants/confirm-dialog-constant";
 import { ConfirmDialogComponent } from "src/app/components/confirm-dialog/confirm-dialog.component";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
   selector: 'invoices-list',
@@ -13,29 +14,32 @@ import { ConfirmDialogComponent } from "src/app/components/confirm-dialog/confir
 })
 export class InvoicesListComponent implements OnInit {
   invoices$: Observable<InvoiceModel[]>
+  userRole: string
   visible = false
-  constructor(private invoicesService: InvoicesService, private confirmationService: ConfirmationService) { }
+  invoiceToUpdate: InvoiceModel
+  constructor(private invoicesService: InvoicesService,
+    private confirmationService: ConfirmationService,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
-    this.loadInvoices()
+    this.loadInvoices();
+    this.getUserRole();
+  }
+  getUserRole() {
+    this.userRole = this.userService.getUserInformations().userRole
   }
   loadInvoices() {
     this.invoices$ = this.invoicesService.getInvoicesList()
   }
-  createInvoice() {
-    this.visible = true
-    // const newProduct = {
-    //   id: '125',
-    //   item: 'New a',
-    //   quantity: 99.99,
-    //   price: 85,
-    //   paymentStatus: 'dg',
-    //   paymentType: 'ffg'
-    // };
-    // this.invoicesService.addInvoice(newProduct).subscribe(() => {
-    //   // Refresh the list after creating
-    //   this.loadInvoices();
-    // });
+  openCreateInvoiceModal() {
+    this.visible = true;
+  };
+  createInvoice(invoice: InvoiceModel) {
+    this.invoicesService.addInvoice(invoice).subscribe(() => {
+      this.loadInvoices();
+      this.visible = false;
+    });
   }
   deleteInvoice(invoice: InvoiceModel) {
     this.confirmationService.confirm({
@@ -47,11 +51,14 @@ export class InvoicesListComponent implements OnInit {
       acceptButtonStyleClass: confirmDialogConstant.acceptButtonStyleClass,
       accept: () => {
         this.invoicesService.deleteInvoice(invoice.id).subscribe(() => {
-          // Refresh the list after deletion
           this.loadInvoices();
         });
       }
     })
+  }
 
+  updateInvoice(invoice: InvoiceModel) {
+    this.invoiceToUpdate = invoice;
+    this.visible = true;
   }
 }
