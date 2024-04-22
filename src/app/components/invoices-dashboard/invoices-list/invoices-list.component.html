@@ -35,6 +35,6 @@
     </div>
 </div>
 <confirm-dialog></confirm-dialog>
-<p-dialog header="Header" [modal]="true" [(visible)]="visible" [style]="{ width: '50vw' }">
-    <create-invoice (createInvoiceAction)='createInvoice($event)'></create-invoice>
+<p-dialog [modal]="true" [(visible)]="visible" [style]="{ width: '50vw' }">
+    <create-invoice [invoiceToUpdate]='invoiceToUpdate' (createInvoiceAction)='createInvoice($event)'></create-invoice>
 </p-dialog>
